@@ -1,4 +1,4 @@
-Signature Pad [![Code Climate](https://codeclimate.com/github/szimek/signature_pad.png)](https://codeclimate.com/github/szimek/signature_pad)
+Signature Pad [![Code Climate](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&type=6&v=1.5.3&x2=0)](https://www.npmjs.com/package/signature_pad) [![Code Climate](https://codeclimate.com/github/szimek/signature_pad.png)](https://codeclimate.com/github/szimek/signature_pad)
 =============
 
 Signature Pad is a JavaScript library for drawing smooth signatures. It's HTML5 canvas based and uses variable width Bézier curve interpolation based on [Smoother Signatures](http://corner.squareup.com/2012/07/smoother-signatures.html) post by [Square](https://squareup.com).
@@ -129,14 +129,16 @@ Here's an example in PHP:
 
 ``` php
 $data_uri = "data:image/png;base64,iVBORw0K...";
-$data_pieces = explode(",", $data_uri);
-$encoded_image = $data_pieces[1];
+$encoded_image = explode(",", $data_uri)[1];
 $decoded_image = base64_decode($encoded_image);
-file_put_contents( "signature.png",$decoded_image);
+file_put_contents("signature.png", $decoded_image);
 ```
 
 ### Removing empty space around a signature
 If you'd like to remove (trim) empty space around a signature, you can do it on the server side or the client side. On the server side you can use e.g. ImageMagic and its `trim` option: `convert -trim input.jpg output.jpg`. If you don't have access to the server, or just want to trim the image before submitting it to the server, you can do it on the client side as well. Here's an example: https://github.com/szimek/signature_pad/issues/49#issue-29108215.
+
+### Drawing over an image
+Demo: https://jsfiddle.net/szimek/d6a78gwq/
 
 ## License
 Released under the [MIT License](http://www.opensource.org/licenses/MIT).
